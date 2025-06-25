@@ -1,0 +1,1044 @@
+DONOTIMPORT,TRANSACTIONTYPE,DATE,GLPOSTINGDATE,DOCUMENTNO,CUSTOMER_ID,TERMNAME,DATEDUE,REFERENCENO,MESSAGE,SHIPPINGMETHOD,BILLTO,SHIPTO,CURRENCY,BASECURR,EXCHRATEDATE,EXCHRATETYPE,EXCHRATE,STATE,NEEDBYDATE,SHIPBYDATE,CANCELAFTERDATE,DONOTSHIPBEFOREDATE,DONOTSHIPAFTERDATE,SERVICEDELIVERYDATE,TRACKINGNUMBER,SHIPPEDDATE,CUSTOMERPONUMBER,LINE,ITEMID,ITEMDESC,ITEMALIASID,WAREHOUSEID,QUANTITY,UNIT,LINELEVELSIMPLETAXTYPE,PRICE,TAXABLE,DISCOUNT_MEMO,REVREC_TEMPLATE,REVREC_STARTDATE,REVREC_ENDDATE,BILLING_TEMPLATE,RENEWAL_MACRO,DEPARTMENTID,LOCATIONID,SODOCUMENTENTRY_CLASSID,SODOCUMENTENTRY_PROJECTID,SODOCUMENTENTRY_CUSTOMERID,SODOCUMENTENTRY_EMPLOYEEID,SODOCUMENTENTRY_VENDORID,SUB_LINE_NO,SUBDESC,ABSVAL,PERCENTVAL,SUBLOCATIONID,SUBDEPARTMENTID,SODOCUMENTSUBTOTALS_CLASSID,SODOCUMENTSUBTOTALS_PROJECTID,SODOCUMENTSUBTOTALS_CUSTOMERID,SODOCUMENTSUBTOTALS_EMPLOYEEID,SODOCUMENTSUBTOTALS_VENDORID,MEMO,SODOCUMENTENTRY_TASKID,SODOCUMENTENTRY_GLDIMRELEASE,SODOCUMENTENTRY_GLDIMATTENDEE,SODOCUMENTENTRY_NEEDBYDATE,SODOCUMENTENTRY_SHIPBY,SODOCUMENTENTRY_DONOTSHIPBEFOREDATE,SODOCUMENTENTRY_DONOTSHIPAFTERDATE,SODOCUMENTENTRY_DATEPICKTICKETPRINTED,SODOCUMENTENTRY_CANCELAFTERDATE,SODOCUMENTENTRY_SHIPPEDDATE,COMPONENTID,TRACK_QUANTITY,SERIALNO,AISLEID,ROWID,BINID,LOTNO,EXPIRATION,DROPSHIP,SODOCUMENTENTRY_BUYTOORDERSHIPTO,BUYTOORDER,RETAINAGEPERCENTAGE,PROJECTID,CHANGELOGNUMBER,ORIGDOCDATE,CONVERSIONTYPE,SODOCUMENTENTRY_TASKKEY,SODOCUMENTENTRY_RETAINAGEPERCENTAGE,SODOCUMENTENTRY_TRX_AMOUNTRETAINED,SODOCUMENTENTRY_AMOUNTRETAINED,SODOCUMENTENTRY_SHIPTO,SCOPE,INCLUSIONS,EXCLUSIONS,TERMS,SCHEDULESTARTDATE,ACTUALSTARTDATE,SCHEDULEDCOMPLETIONDATE,REVISEDCOMPLETIONDATE,SUBSTANTIALCOMPLETIONDATE,ACTUALCOMPLETIONDATE,NOTICETOPROCEEDDATE,RESPONSEDUEDATE,EXECUTEDONDATE,SCHEDULEIMPACT,INTERNALREFNO,INTERNALINITIATEDBY,INTERNALVERBALBY,INTERNALISSUEDBY,INTERNALISSUEDONDATE,INTERNALAPPROVEDBY,INTERNALAPPROVEDONDATE,INTERNALSIGNEDBY,INTERNALSIGNEDONDATE,INTERNALSOURCE,INTERNALSOURCEREFNO,EXTERNALREFNO,EXTERNALVERBALBY,EXTERNALAPPROVEDBY,EXTERNALAPPROVEDONDATE,EXTERNALSIGNEDBY,EXTERNALSIGNEDONDATE,PERFORMANCEBONDREQUIRED,PERFORMANCEBONDRECEIVED,PERFORMANCEBONDAMOUNT,PERFORMANCESURETYCOMPANY,PAYMENTBONDREQUIRED,PAYMENTBONDRECEIVED,PAYMENTBONDAMOUNT,PAYMENTSURETYCOMPANY,TAXSOLUTIONID,SODOCUMENTSUBTOTALS_ITEMID
+"#
+Any row which starts with a # will be ignored during import","Field Name: TYPE
+UI Field Name: Type
+Type: Character 
+Length: 30
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: Refers to a valid template name.
+Required: Yes
+Editable: No
+","Field Name: DATE
+UI Field Name: Date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: Yes
+Editable: No","Field Name: GLPOSTINGDATE
+UI Field Name: GL Posting Date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: Yes, if you have enabled in your AR Preferences Allow GL Posting date override while Invoice/Adjustment Entry.
+Editable: Yes","Field Name: DOCUMENTNO
+UI Field Name: Document Number  
+Type: Alphanumeric
+Length: 30
+Default Value: None
+Valid Values: Alphanumeric
+Dependencies: None
+Required: Yes, if you do not have auto-numbering enabled in your transaction defintion.
+Editable: No","Field Name: CUSTOMER_ID
+UI Field Name: Customer  
+Type: Alphanumeric
+Length: 21
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Should already exist
+Required: Yes
+Editable: No","Field Name:TERMNAME
+UI Field Name: Payment Terms  
+Type: Alphanumeric
+Length: 40
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Should already exist
+Required: No
+Editable: No","Field Name: DATEDUE
+UI Field Name: Due Date/Ship Date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: Yes
+Editable: No","Field Name: REFERENCENO
+UI Field Name: Reference Number  
+Type: Alphanumeric
+Length: 100
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: None
+Required: No
+Editable: Yes","Field Name: MESSAGE
+UI Field Name: Message  
+Type: Alphanumeric
+Length: 1000
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: None
+Required: No
+Editable: No
+","Field Name: SHIPPINGMETHOD
+UI Field Name: Ship Via
+Type: Character 
+Length: 40
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: Refers to a valid shipping method.
+Required: No
+Editable: Yes
+","Field Name: BILLTO
+UI Field Name: Bill to
+Type: Character 
+Length: 40
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: Refers to a valid Bill to.
+Required: No
+Editable: Yes
+","Field Name: SHIPTO
+UI Field Name: Ship to
+Type: Character 
+Length: 40
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: Refers to a valid Ship to.
+Required: No
+Editable: Yes
+","Field Name: CURRENCY
+UI Field Name: Currency
+Type: Character
+Length: 3
+Default Value: Base Currency
+Valid Values: Any defined currency, such as USD or EUR. Blank denotes base currency
+Dependencies: Must reference a previously defined currency
+Required: No
+Editable: Yes
+Notes: Use only in multi-currency companies. This field defines the transaction currency. If no field is defined here, the system uses base currency.","Field Name: BASECURR
+UI Field Name: Base Currency
+Type: Character
+Length: 3
+Default Value: None
+Valid Values: Any defined  three-letter ISO-4127 currency code such as USD or EUR
+Dependencies: Must reference a previously-defined currency. Locations in line items must use the same base currency.
+Required: No, except for shared multi-entity companies with multiple base currencies. 
+Editable: No
+Notes: Applies only to shared multi-entity companies with multiple base currencies. This field defines the transaction base currency. Verify that locations in line items use the same base currency.","Field Name: EXCHRATEDATE
+UI Field Name: Exchange Rate Date
+Type: Date
+Length: 10
+Default Value: Today
+Valid Values: Any valid date format
+Dependencies: None
+Required: Yes, unless you provide the EXCHANGE_RATE
+Editable: Yes
+Notes: Use only in multi-currency companies. This field determines the exchange rate as of this date.","Field Name: EXCHRATETYPE
+UI Field Name: Exchange Rate Type
+Type: Character
+Length: 40
+Default Value: Intacct Daily Rate, unless a custom exchange rate is defined as the default
+Valid Values: Alphanumeric and underscore
+Dependencies: Must reference a previously defined exchange rate type
+Required: No
+Editable: Yes
+Notes: Use only in multi-currency companies. Defines an optional custom exchange rate type. The system uses the Intacct Daily rate if no optional one is defined here.","Field Name: EXCHRATE
+UI Field Name: Exchange Rate
+Type: Number
+Length: 17, not including decimal point
+Default Value: Defaults to the exchange rate of the CURRENCY on the EXCH_RATE_DATE for the EXCH_RATE_TYPE
+Valid Values: Positive integers
+Dependencies: None
+Required: No
+Editable: Yes
+Notes: Use only in multi-currency companies. Overrides the default exchange rate, which is the product of the CURRENCY, EXCH_RATE_DATE and EXCH_RATE_TYPE.","Field Name: STATE
+UI Field Name: Transaction Status
+Type: Character 
+Length: 
+Default Value: Draft
+Valid Values:  Draft, Pending and Closed
+Dependencies: None
+Required: Yes
+Editable: Yes","Field Name: NEEDBYDATE
+UI Field Name: Need by date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: SHIPBYDATE
+UI Field Name: Ship by date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: Calculated field if NEEDBYDATE is specified and shipping method is available. User can also override value.    
+Required: No
+Editable: Yes                                                                    
+Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: CANCLEAFTERDATE
+UI Field Name: Cancel after date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: DONOTSHIPDEFOREDATE
+UI Field Name: Do not ship before date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: DONOTSHIPAFTERDATE
+UI Field Name: Do not ship after date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: SERVICEDELIVERYDATE
+UI Field Name: Service delivery date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: TRACKINGNUMBER
+UI Field Name: Tracking number 
+Type: Alphanumeric
+Length: 4000
+Default Value: None
+Valid Values: Alphanumeric
+Dependencies: Multiple tracking numbers can be entered if they are separated by a comma with no spaces.
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: SHIPPEDDATE
+UI Field Name: Shipped date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: CUSTOMERPONUMBER
+UI Field Name: Customer PO number
+Type: Alphanumeric
+Length: 120
+Default Value: None
+Valid Values: Alphanumeric
+Dependencies: None
+Required: No
+Editable: Yes","Field Name: LINE
+UI Field Name: 
+Type: Number
+Length: 
+Default Value: None
+Valid Values:Number
+Dependencies: None
+Required: Yes
+Editable: No","Field Name: ITEM_ID
+UI Field Name: Item ID
+Type: Character
+Length: 30
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: Refers to a valid item ID.
+Required: Yes
+Editable: Yes","Field Name: ITEMDESC
+UI Field Name: Item Description
+Type: Character
+Length: 100
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: None
+Required: No
+Editable: Yes","Field Name: ITEMALIASID
+UI Field Name: Cross-reference item ID
+Type: Character
+Length: 30
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: Refers to a valid Cross-reference item ID.
+Required: No
+Editable: Yes","Field Name: WAREHOUSEID
+UI Field Name: Warehouse
+Type: Character
+Length: 30
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: Must refer to a valid warehouse
+Required: Yes, if the item type is Inventory or Stockable Kit.
+Editable: Yes","Field Name: QUANTITY
+UI Field Name: Quantity
+Type: Numeric
+Length: 8
+Default Value: None
+Valid Values: Integer
+Dependencies: None
+Required: Yes
+Editable: Yes
+","Field Name: UNIT
+UI Field Name: Unit 
+Type: Character
+Length: N/A
+Default Value: Count
+Valid Values: Count, Length, Time, Volume, Weight etc...
+Dependencies: Valid unit
+Required: Yes
+Editable: Yes","Field Name: LINELEVELSIMPLETAXTYPE
+UI Field Name: Tax Type 
+Type: Character
+Length: N/A
+Default Value: First taxable subtotal from Transaction definition
+Valid Values: Alphanumeric and underscore
+Dependencies: Valid Tax from transaction definition
+Required: No
+Editable: Yes","Field Name: PRICE
+UI Field Name: Price
+Type: Numeric
+Length: 10,2
+Default Value: 0
+Valid Values: Decimal
+Dependencies: None
+Required: No
+Editable: Yes","Field Name: TAXABLE
+UI Field Name: Taxable
+Type: Character
+Length: N/A
+Default Value: Derived from ITEM
+Valid Values: T or F (for true or false respectively)
+Dependencies: None
+Required: No
+Editable: Yes","Field Name: DISCOUNT_MEMO
+UI Field Name: Discount/Surcharge Notes  
+Type: Alphanumeric
+Length: 4000
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: None
+Required: Yes, if Discount/surcharge and Require Memo are enabled.
+Editable: Yes
+","Field Name: REVREC_TEMPLATE
+UI Field Name: Rev Rec Template 
+Type: Alphanumeric
+Length: 40
+Default value: None
+Valid values: Alphanumeric
+Dependencies: Refers to an existing template. 
+Required: Yes, if the line is to be deferred.
+Editable: No","Field Name: REVREC_STARTDATE
+UI Field Name: Start Date
+Type: Date
+Length: 10
+Default value: None
+Valid values: Any valid date format.
+Dependencies: None
+Required: No
+Editable: Yes","Field Name: REVREC_ENDDATE
+UI Field Name: End Date
+Type: Date
+Length: 10
+Default value: None
+Valid values: Any valid date format.
+Dependencies: None
+Required: No
+Editable: Yes","Field Name: BILLING_TEMPLATE
+UI Field Name: Billing Template 
+Type: Alphanumeric
+Length: 30
+Default value: None
+Valid values: Alphanumeric
+Dependencies: Refers to an existing template. 
+Required: No
+Editable: No","Field Name: RENEWAL_MACRO
+UI Field Name: Renewal Macro
+Type: Character
+Length: 30
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: Must refer to a valid renewal macro ID
+Required: No
+Editable: Yes","Field Name: DEPARTMENTID
+UI Field Name: Department  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: None
+Required: No
+Editable: No","Field Name: LOCATIONID
+UI Field Name: Location
+Type: Character 
+Length: 20
+Default Value: None
+Valid Values: An existing valid location
+Dependencies: None, except in shared multi-entity companies with multiple base currencies, the LOCATION_ID must use the same currency as the BASECURR field.
+Required: No
+Editable: Yes, if the transaction is not partially or fully paid, or partially or fully converted.
+Notes: In shared multi-entity companies with multiple base currencies, LOCATION_ID must be in an entity that uses the same base currency as BASECURR.","Field Name: SODOCUMENTENTRY_CLASSID
+UI Field Name: Class  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Refers to a valid class.
+Required: No
+Editable: No","Field Name: SODOCUMENTENTRY_PROJECTID
+UI Field Name: Project  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Refers to a valid project.
+Required: No
+Editable: No","Field Name: SODOCUMENTENTRY_CUSTOMERID
+UI Field Name: Customer  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Refers to a valid customer.
+Required: No
+Editable: No","Field Name: SODOCUMENTENTRY_EMPLOYEEID
+UI Field Name: Employee  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Refers to a valid employee.
+Required: No
+Editable: No","Field Name: SODOCUMENTENTRY_VENDORID
+UI Field Name: Vendor  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Refers to a valid vendor.
+Required: No
+Editable: No","Field Name: SUB_LINE_NO
+UI Field Name: 
+Type: Number
+Length: 
+Default Value: None
+Valid Values:Number
+Dependencies: None
+Required: Yes, if you have subtotals for your transaction.
+Editable: Yes","Field Name: SUBDESC
+UI Field Name:  Description
+Type: Alphanumeric and underscore
+Note:  Must match the description available in your subtotals","Field Name: ABSVAL
+UI Field Name: Transaction Value
+Type: Numeric
+Length: 10,2
+Default Value: 0
+Valid Values: Decimal
+Dependencies: None
+Required: No
+Editable: Yes","Field Name: PERCENTVAL
+UI Field Name: Percent
+Type: Character
+Length: 3.2
+Default Value: None
+Valid Values:  Numbers
+Dependencies: None
+Required: No
+Editable: Yes","Field Name: SUBLOCATIONID
+UI Field Name: Location
+Type: Character 
+Length: 20
+Default Value: None
+Valid Values: An existing valid location
+Dependencies: None, except in shared multi-entity companies with multiple base currencies, the LOCATION_ID must use the same currency as the BASECURR field.
+Required: No
+Editable: Yes, if the bill is not partially paid or paid
+Notes: In shared multi-entity companies with multiple base currencies, LOCATION_ID must be in an entity that uses the same base currency as BASECURR.","Field Name: SUBDEPARTMENTID
+UI Field Name: Department  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: None
+Required: No
+Editable: No","Field Name: SODOCUMENTSUBTOTALS_CLASSID
+UI Field Name: Class  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Refers to a valid class.
+Required: No
+Editable: No","Field Name: SODOCUMENTSUBTOTALS_PROJECTID
+UI Field Name: Project  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Refers to a valid project.
+Required: No
+Editable: No","Field Name: SODOCUMENTSUBTOTALS_CUSTOMERID
+UI Field Name: Customer  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Refers to a valid customer.
+Required: No
+Editable: No","Field Name: SODOCUMENTSUBTOTALS_EMPLOYEEID
+UI Field Name: Employee  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Refers to a valid employee.
+Required: No
+Editable: No","Field Name: SODOCUMENTSUBTOTALS_VENDORID
+UI Field Name: Vendor  
+Type: Alphanumeric
+Length: 20
+Default Value: None
+Valid Values: Alphanumeric 
+Dependencies: Refers to a valid vendor.
+Required: No
+Editable: No",Field name: MEMO,Field name: SODOCUMENTENTRY_TASKID,Field name: SODOCUMENTENTRY_GLDIMRELEASE,Field name: SODOCUMENTENTRY_GLDIMATTENDEE,"Field Name: SODOCUMENTENTRY_NEEDBYDATE
+UI Field Name: Need by date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: SODOCUMENTENTRY_SHIPBY
+UI Field Name: Ship by  date
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: SODOCUMENTENTRY_DONOTSHIPBEFOREDATE
+UI Field Name: Do not ship before date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: SODOCUMENTENTRY_DONOTSHIPAFTERDATE
+UI Field Name: Do not ship after date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: SODOCUMENTENTRY_DATEPICKTICKETPRINTED
+UI Field Name: Pick ticket printed date 
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: SODOCUMENTENTRY_CANCELAFTERDATE
+UI Field Name: Cancel after date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: SODOCUMENTENTRY_SHIPPEDDATE
+UI Field Name: Shipped date  
+Type: Date
+Length: 
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: No
+Editable: Yes                                                                    Notes:  Applicable only if 'Enable shipping dates in Purchasing and Order Entry' is set to true on the Configure Inventory Control page.","Field Name: COMPONENTID
+UI Field Name: COMPONENT ID
+Type: Character
+Length: 30
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: Refers to a valid item ID.
+Required:  Yes, when a Kit has a child component that has either serial numbers or lots.
+Editable: Yes Notes:  Specifies the Item ID of a child of a kit that has a serial number or Lot assigned to it.","Field Name: TRACK_QUANTITY
+UI Field Name: Quantity to fulfill 
+Type: Numeric
+Length: 8
+Default Value: None
+Valid Values: Integer
+Dependencies: None
+Required: Yes, if the item is enabled for tracking (serial, bin, lot, expiration date, or any combination of those attributes)
+Editable: Yes 
+Notes: Enter a quantity that matches the granularity of the item's tracking attributes. 
+* Example 1. Assume that you are selling 10 units of an item that is only serial tracked. Use 10 lines. Enter 1 in this column and the serial number in SERIALNO.
+* Example 2. Assume that you are selling 10 units of an item that is lot and bin tracked. All the units are in Bin 1, but 6 of the units are from Lot 1 and 4 of the units are from Lot 2. Use 2 lines. For the first line, enter 6 in TRACK_QUANTITY, Bin 1 in BINID, and Lot 1 in LOTNO. For the second line, enter 4 in TRACK_QUANTITY, Bin 1 in BIND, and Lot 2 in LOTNO.","Field Name: SERIALNO
+UI Field Name: Serial number
+Type: Character (For WT, it's Alphanumeric)
+Length: 30 (for WT, it's 50)
+Default Value: None
+Valid Values: Integer (For WT, it's Alphanumeric)
+Dependencies: None
+Required: Yes, if the item is tracked by serial number
+Editable: Yes
+Notes:  Enter a value of 1 in TRACK_QUANTITY for each unit being imported. ","Field Name: AISLEID
+UI Field Name: Aisle
+Type: Character
+Length: 30
+Default Value: None
+Valid Values: Integer
+Dependencies: Your company is using classic bins and not unique bins per warehouse.
+Required: No
+Editable: Yes
+Notes: Do not use this column unless you are using classic bins. The Bins (classic) option is selected on the Configure Inventory Control page if you are using classic bins.","Field Name: ROWID
+UI Field Name: Row
+Type: Character
+Length: 30
+Default Value: None
+Valid Values: Integer
+Dependencies: Your company is using classic bins and not unique bins per warehouse.
+Required: No
+Editable: Yes
+Notes: Do not use this column unless you are using classic bins. The Bins (classic) option is selected on the Configure Inventory Control page if you are using classic bins.","Field Name: BINID
+UI Field Name: Bin
+Type: Character (For WT, it's Alphanumeric)
+Length: 30 
+Default Value: None
+Valid Values: Integer (For WT, it's Alphanumeric)
+Dependencies: Refers to a valid bin ID for the warehouse
+Required: Yes, if the item is enabled for bin tracking
+Editable: Yes
+Notes: See the notes for TRACK_QUANTITY.","Field Name: LOTNO
+UI Field Name: Lot number
+Type: Character  (For WT, it's Alphanumeric)
+Length: 30  (for WT, it's 50)
+Default Value: None
+Valid Values: Integer  (For WT, it's Alphanumeric)
+Dependencies: None
+Required: Yes, if the item is enabled for lot tracking
+Editable: Yes
+Notes: See the notes for TRACK_QUANTITY. ","Field Name: EXPIRATION
+UI Field Name: Expiration date
+Type: Date
+Length:
+Default Value: None
+Valid Values: Date
+Dependencies: None
+Required: Yes, if the item is enabled for expiration date tracking
+Editable: Yes
+Notes: See the notes for TRACK_QUANTITY.","Field Name: DROPSHIP
+UI Field Name: Available for drop ship 
+Type: Character
+Length: 30
+Default Value: F
+Valid Values:  T (true), F (false)
+Dependencies: None
+Required: No
+Editable: Yes
+Note: Enter a T if the item is available for drop ship","Field Name: BTOSHIPTOCONTACTNAME
+UI Field Name: Buy to Order Ship To
+Type: Character 
+Length: 40
+Default Value: None
+Valid Values: Alphanumeric and underscore
+Dependencies: Refers to a valid Ship to.
+Required: No
+Editable: Yes","Field Name: BUYTOORDER
+UI Field Name: Available for buy to order 
+Type: Character
+Length: 30
+Default Value: F
+Valid Values: T (true), F (false)
+Dependencies: None
+Required: No
+Editable: Yes
+Note: Enter a T if the item is available for buy to order","Field name: RETAINAGEPERCENTAGE
+UI field name: Default retainage percentage
+Type: Number
+Max length: 6
+Default value: None
+Valid values: Digits 0-9
+Dependencies: None
+Required: No
+Editable: No","Field name: PROJECT
+UI field name: Project
+Type: Character
+Max length: 20
+Default value: None
+Dependencies: A valid project
+Required: No
+Editable: No","Field name: CHANGELOGNUMBER
+UI field name: Change log number
+Type: Number
+Default value: None
+Valid values: Digits 0-9
+Dependencies: None
+Required: No
+Editable: No","Field name: ORIGDOCDATE
+UI field name: Original sales invoice date
+Type: Date
+Max length: 12
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: CONVERSIONTYPE
+UI field name: Conversion type
+Type: Character
+Default value: None
+Valid values: Q, P (Q = Quantity, P = Price)
+Dependencies: None
+Required: No
+Editable: No","Field name: TASKKEY
+UI field name: Task key
+Type: Character
+Default value: None
+Dependencies: None
+Required: No
+Editable: No","Field name: RETAINAGEPERCENTAGE
+UI field name: Retainage percentage
+Type: Number
+Max length: 6
+Default value: None
+Valid values: Digits 0-9
+Dependencies: None
+Required: No
+Editable: No","Field name: TRX_AMOUNTRETAINED
+UI field name: Txn amount retained
+Type: Number
+Max length: 18
+Default value: None
+Valid values: Digits 0-9
+Dependencies: None
+Required: No
+Editable: No","Field name: AMOUNTRETAINED
+UI field name: Amount retained
+Type: Number
+Max length: 18
+Default value: None
+Valid values: Digits 0-9
+Dependencies: None
+Required: No
+Editable: No","Field name: SHIPTO.CONTACTNAME
+UI field name: Ship to
+Type: Character
+Max length: 200
+Default value: None
+Dependencies: A valid contract
+Required: No
+Editable: No","Field name: SCOPE
+UI field name: Scope
+Type: Character
+Max length: 4000
+Default value: None
+Dependencies: None
+Required: No
+Editable: No","Field name: INCLUSIONS
+UI field name: Inclusions
+Type: Character
+Max length: 4000
+Default value: None
+Dependencies: None
+Required: No
+Editable: No","Field name: EXCLUSIONS
+UI field name: Exclusions
+Type: Character
+Max length: 4000
+Default value: None
+Dependencies: None
+Required: No
+Editable: No","Field name: TERMS
+UI field name: Terms
+Type: Character
+Max length: 4000
+Default value: None
+Dependencies: None
+Required: No
+Editable: No","Field name: SCHEDULESTARTDATE
+UI field name: Scheduled start date
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: ACTUALSTARTDATE
+UI field name: Actual start date
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: SCHEDULEDCOMPLETIONDATE
+UI field name: Scheduled completion date
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: REVISEDCOMPLETIONDATE
+UI field name: Revised completion date
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: SUBSTANTIALCOMPLETIONDATE
+UI field name: Substantial completion date
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: ACTUALCOMPLETIONDATE
+UI field name: Actual completion date
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: NOTICETOPROCEED
+UI field name: Notice to proceed
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: RESPONSEDUE
+UI field name: Response due
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: EXECUTEDON
+UI field name: Executed on
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: SCHEDULEIMPACT
+UI field name: Schedule impact
+Type: Character
+Max length: 100
+Default value: None
+Dependencies: None
+Required: No
+Editable: No","Field name: INTERNALREFNO
+UI field name: Internal reference no.
+Type: Character
+Max length: 100
+Default value: None
+Dependencies: None
+Required: No
+Editable: No","Field name: INTERNALINITIATEDBY
+UI field name: Internal initiated by
+Type: Character
+Default value: None
+Dependencies: A valid employee
+Required: No
+Editable: No","Field name: INTERNALVERBALBY
+UI field name: Internal verbal by
+Type: Character
+Default value: None
+Dependencies: A valid employee
+Required: No
+Editable: No","Field name: INTERNALISSUEDBY
+UI field name: Internal issued by
+Type: Character
+Default value: None
+Dependencies: A valid employee
+Required: No
+Editable: No","Field name: INTERNALISSUEDON
+UI field name: Internal issued on
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: INTERNALAPPROVEDBY
+UI field name: Internal approved by
+Type: Character
+Default value: None
+Dependencies: A valid employee
+Required: No
+Editable: No","Field name: INTERNALAPPROVEDON
+UI field name: Internal approved on
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: INTERNALSIGNEDBY
+UI field name: Internal signed by
+Type: Character
+Default value: None
+Dependencies: A valid employee
+Required: No
+Editable: No","Field name: INTERNALSIGNEDON
+UI field name: Internal signed on
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: INTERNALSOURCE
+UI field name: Internal source
+Type: Character
+Max length: 100
+Default value: None
+Dependencies: None
+Required: No
+Editable: No","Field name: INTERNALSOURCEREFNO
+UI field name: Internal source reference no.
+Type: Character
+Max length: 100
+Default value: None
+Dependencies: None
+Required: No
+Editable: No","Field name: EXTERNALREFNO
+UI field name: External reference no.
+Type: Character
+Max length: 100
+Default value: None
+Dependencies: None
+Required: No
+Editable: No","Field name: EXTERNALVERBALBY
+UI field name: External verbal by
+Type: Character
+Default value: None
+Dependencies: A valid contract
+Required: No
+Editable: No","Field name: EXTERNALAPPROVEDBY
+UI field name: External approved by
+Type: Character
+Default value: None
+Dependencies: A valid contract
+Required: No
+Editable: No","Field name: EXTERNALAPPROVEDON
+UI field name: External approved on
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: EXTERNALSIGNEDBY
+UI field name: External signed by
+Type: Character
+Default value: None
+Dependencies: A valid contract
+Required: No
+Editable: No","Field name: EXTERNALSIGNEDON
+UI field name: External signed on
+Type: Date
+Max length: 10
+Length: 10
+Default value: None
+Valid values: Date format MM/DD/YYYY
+Dependencies: None
+Required: No
+Editable: No","Field name: PERFORMANCEBONDREQUIRED
+UI field name: Performance bond required
+Type: Character
+Max length: 5
+Default value: None
+Valid values: T, F (T = TRUE, F = FALSE)
+Dependencies: None
+Required: No
+Editable: No","Field name: PERFORMANCEBONDRECEIVED
+UI field name: Performance bond received
+Type: Character
+Max length: 5
+Default value: None
+Valid values: T, F (T = TRUE, F = FALSE)
+Dependencies: None
+Required: No
+Editable: No","Field name: PERFORMANCEBONDAMOUNT
+UI field name: Performance bond amount
+Type: Number
+Max length: 21
+Default value: None
+Valid values: Digits 0-9
+Dependencies: None
+Required: No
+Editable: No","Field name: PERFORMANCESURETYCOMPANY
+UI field name: Performance surety company
+Type: Character
+Default value: None
+Dependencies: A valid supplier
+Required: No
+Editable: No","Field name: PAYMENTBONDREQUIRED
+UI field name: Payment bond required
+Type: Character
+Max length: 5
+Default value: None
+Valid values: T, F (T = TRUE, F = FALSE)
+Dependencies: None
+Required: No
+Editable: No","Field name: PAYMENTBONDRECEIVED
+UI field name: Payment bond received
+Type: Character
+Max length: 5
+Default value: None
+Valid values: T, F (T = TRUE, F = FALSE)
+Dependencies: None
+Required: No
+Editable: No","Field name: PAYMENTBONDAMOUNT
+UI field name: Payment bond amount
+Type: Number
+Max length: 21
+Default value: None
+Valid values: Digits 0-9
+Dependencies: None
+Required: No
+Editable: No","Field name: PAYMENTSURETYCOMPANY
+UI field name: Payment surety company
+Type: Character
+Default value: None
+Dependencies: A valid supplier
+Required: No
+Editable: No","Field Name: TAXSOLUTIONID
+UI Field Name: Tax solution
+Type: Character
+Length: 100
+Default Value: None
+Valid Values: Alphanumeric
+Dependencies: None
+Required: Yes,  if your organization is configured for multiple tax jurisdictions and you are importing at the top level.
+Editable: No","Field name: ITEMID
+UI field name: Item
+Type: Character
+Max length: 30
+Default value: None
+Dependencies: A valid item
+Required: No
+Editable: No"
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
