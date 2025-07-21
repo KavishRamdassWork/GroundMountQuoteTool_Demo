@@ -1673,7 +1673,7 @@ label_file.grid(row = 1, column = 2, padx = 5, pady = 5)
 debugLabel = tk.Label(InputFrame, text = "Lol")
 debugLabel.grid(row = 1, column = 5, padx = 5, pady = 5)
 
-SupportLabel = tk.Label(InputFrame, text = "Please email kavish@lumaxenergy.com to report any bugs.")
+SupportLabel = tk.Label(InputFrame, text = "This is a simple demo.")
 SupportLabel.grid(row = 1, column = 6, padx = 5, pady = 5)
 
 TableNumberLabel = tk.Label(master = InputFrame, text = "Number of Tables:")
